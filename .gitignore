@@ -1,0 +1,7 @@
+**/venv
+**/__pycache__
+**/migrations
+**/users_avas
+**/sent_emails
+.vscode/
+*.sqlite3
