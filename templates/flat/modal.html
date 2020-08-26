@@ -1,3 +1,6 @@
+{% load auth_base_tags i18n %}
+{% loadLoginForm as loginform %}
+
 <!-- Modal -->
     <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -13,23 +16,34 @@
           </div>
 
           <div class="modal-body">
+              <form class="login" method="POST" action="{% url 'account_login' %}">
+                  {% csrf_token %}
+                  {{ loginform.as_p }}
+                  {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                  {% endif %}
+                  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+              </form>
             <form class="membership-form webform" role="form">
-                {% include 'account/login.html' %}
-{#                <input type="text" class="form-control" name="cf-name" placeholder="John Doe">#}
-{##}
-{#                <input type="email" class="form-control" name="cf-email" placeholder="Johndoe@gmail.com">#}
-{##}
-{#                <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>#}
-{##}
-{#                <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea>#}
-{##}
-{#                <button type="submit" class="form-control" id="submit-button" name="submit">Submit Button</button>#}
-{##}
-{#                <div class="custom-control custom-checkbox">#}
-{#                    <input type="checkbox" class="custom-control-input" id="signup-agree">#}
-{#                    <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms &amp;Conditions</a>#}
-{#                    </label>#}
-{#                </div>#}
+
+
+
+                <input type="text" class="form-control" name="cf-name" placeholder="John Doe">
+
+                <input type="email" class="form-control" name="cf-email" placeholder="Johndoe@gmail.com">
+
+                <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+                <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea>
+
+                <button type="submit" class="form-control" id="submit-button" name="submit">Submit Button</button>
+
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms &amp;Conditions</a>
+                    </label>
+                </div>
             </form>
           </div>
 

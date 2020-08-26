@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
 
+    'baselogic.apps.BaselogicConfig',
+
 ]
 
 SITE_ID = 1
