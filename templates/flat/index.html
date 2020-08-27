@@ -9,11 +9,19 @@
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
 {% block content %}
 
-    <!-- include sitemenu -->
+{#    <!-- include sitemenu -->#}
     {% include 'flat/navbar.html' %}
 
-    <!-- include modal -->
-    {% include 'flat/modal.html' %}
+    {% if user.is_authenticated %}
+{#        include modal exit form       #}
+
+        {% include 'flat/modal_logout.html' %}
+    {% else %}
+{#     include modal -->#}
+    {% include 'flat/modal_auth.html' %}
+{#    <!-- include signup modal form -->    #}
+    {% include 'flat/modal_signup.html' %}
+    {% endif %}
 
      <!-- HERO -->
      <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
@@ -29,11 +37,14 @@
                                     <h6 data-aos="fade-up" data-aos-delay="300">Мы оказываем широкий спектр услуг</h6>
 
                                     <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">РЕМОНТ ПРИНТЕРОВ, МФУ И ДРУГОЙ ОРГТЕХНИКИ</h1>
-
-                                    <a href="#feature" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Get started</a>
-
-                                    <a href="#about" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">learn more</a>
-                                   
+                                  {% if not user.is_authenticated %}
+                                    <a href="#" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="900" data-toggle="modal" data-target="#signupForm">Регистрация</a>
+{#                                    <a href="#feature" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Get started</a>#}
+                                    <a href="#" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="800" data-toggle="modal" data-target="#signinForm">Авторизация</a>
+{#                                    <a href="#about" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">learn more</a>#}
+                                  {% else %}
+                                      <a href="#" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="800" data-toggle="modal" data-target="#logoutForm">Выход</a>
+                                  {% endif %}
                               </div>
                          </div>
 
