@@ -1,11 +1,12 @@
 <!-- sign up Modal -->
+{% load i18n %}
     <div class="modal fade" id="signupForm" tabindex="-1" role="dialog" aria-labelledby="signupFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
 
         <div class="modal-content">
           <div class="modal-header">
 
-            <h2 class="modal-title" id="signupFormLabel">Membership Form</h2>
+            <h2 class="modal-title" id="signupFormLabel">Регистрация</h2>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -14,21 +15,21 @@
 
           <div class="modal-body">
 
-                <input type="text" class="form-control" name="cf-name" placeholder="John Doe">
+            <form action=""></form>
+            <form action="{% url 'account_signup' %}" method="POST">
+                {% csrf_token %}
+                <input class="form-control" type="text" name="username" placeholder="Ваш логин" autofocus="autofocus" minlength="1" maxlength="150" required="" id="id_username">
 
-                <input type="email" class="form-control" name="cf-email" placeholder="Johndoe@gmail.com">
+                <input class="form-control" type="email" name="email" placeholder="E-mail адрес" id="id_email">
 
-                <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <input class="form-control" type="password" name="password1" placeholder="Пароль" required="" id="id_password1">
 
-                <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea>
+                <input class="form-control" type="password" name="password2" placeholder="Пароль (ещё раз)" required="" id="id_password2">
 
-                <button type="submit" class="form-control" id="submit-button" name="submit">Submit Button</button>
-
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="signup-agree">
-                    <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms &amp;Conditions</a>
-                    </label>
-                </div>
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button type="submit" class="form-control" id="submit-button" name="submit">Зарегистрироваться</button>
             </form>
           </div>
 
