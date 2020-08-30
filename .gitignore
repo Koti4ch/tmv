@@ -7,3 +7,4 @@
 **/sent_emails
 .vscode/
 *.sqlite3
+**/media

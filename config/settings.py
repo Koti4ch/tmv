@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
 
+    # manual apps
     'baselogic.apps.BaselogicConfig',
+    'content.apps.ContentConfig',
 
 ]
 
