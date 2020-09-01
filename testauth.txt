@@ -1,0 +1,21 @@
+google = [
+
+������������� �������
+496873434297-2sqcegmgcps9nqcu6r93n57kut2u42no.apps.googleusercontent.com
+
+��������� ��� �������
+eNq319ZmdpuoXwiMekPX83LO
+]
+
+
+
+
+github = [
+
+Client ID
+9845cb4d9acbc303ef8e
+
+Client Secret
+bd34881e7973ee65d8c4f32ea3118ca955c5e1d2
+
+]

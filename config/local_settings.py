@@ -12,7 +12,7 @@ SECRET_KEY = '7lm+j%3duv(z)nd8+v%40y*=g4m$_kq3c!xk^0b^b1+520fwh5'
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -41,6 +41,27 @@ DATABASES = {
 #     #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
 #     # },
 # ]
+
+#   TODO: we need to add social accounts logins
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    },
+    'google': {
+            'SCOPE': [
+                'profile',
+                'email',
+            ],
+            'AUTH_PARAMS': {
+                'access_type': 'online',
+            }
+    }
+
+}
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

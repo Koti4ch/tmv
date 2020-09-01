@@ -7,7 +7,6 @@ from django.contrib import messages
 # Create your views here.
 
 
-# TODO : sendmail logic next here... I think...
 class FormHendler(View):
     def post(self, request):
         subject = 'Сообщение от {}'.format(request.POST.get('cf-name', ''))
