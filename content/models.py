@@ -7,6 +7,7 @@ class CarouselItem(models.Model):
     title = models.CharField("Заголовок", max_length=25, null=False, blank=False, default='ItemHeader')
     description = models.CharField("Описание", max_length=50, null=False, blank=False, default="Base description")
     image = models.ImageField(default='classic.jpg', null=False, upload_to='carouselfiles')
+    delay = models.CharField("Зависание", max_length=3, default='400', null=False)
     active = models.BooleanField(default=True, null=False)
 
     class Meta:
