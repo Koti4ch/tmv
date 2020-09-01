@@ -1,9 +1,9 @@
 google = [
 
-������������� �������
+Client ID
 496873434297-2sqcegmgcps9nqcu6r93n57kut2u42no.apps.googleusercontent.com
 
-��������� ��� �������
+Client Secret
 eNq319ZmdpuoXwiMekPX83LO
 ]
 
