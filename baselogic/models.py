@@ -11,3 +11,7 @@ class UserMailLog(models.Model):
 
     def __str__(self):
         return f'от {self.sendermail}'
+
+
+class UserReview(models.Model):
+    pass

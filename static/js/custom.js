@@ -30,7 +30,7 @@
   $('.owl-carousel').owlCarousel({
     loop:true,
     autoplay: true,
-    autoplayTimeout: 3000,
+    autoplayTimeout: 6000,
     autoplayHoverPause: true,
     pullDrag: true,
     stagePadding: 30,
@@ -47,7 +47,7 @@
         },
         1000:{
             items:3,
-            margin:30,
+            margin:20,
             stagePadding: 50,
             nav:true,
         }
