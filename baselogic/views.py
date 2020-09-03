@@ -33,17 +33,14 @@ class FormHendler(View):
         return HttpResponseRedirect('/')
 
 
-
 class SendReviewView(View):
     def post(self, request):
         review = ReviewForm(request.POST)
-        print(review)
         if review.is_valid():
             review.save(commit=False)
             review.save()
             messages.add_message(request, messages.INFO, 'Ваш отзыв отправлен. Спасибо.')
         else:
-            print('False')
             try:
                 obj = UserReview.objects.get(sendername_id=request.user.id)
                 obj.review = request.POST.get('review')

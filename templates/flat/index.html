@@ -75,6 +75,7 @@
                     <h6 class="mb-4 text-white" data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, vitae voluptates.</h6>
 
                     <p data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga incidunt laborum nesciunt placeat praesentium quaerat suscipit voluptas, voluptatum. Minima, odit?</p>
+                    {% UserReviewText user as reviewtext %}
                     {% if reviewtext %}
                         <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#reviewForm">Редактировать свой отзыв</a>
                     {% else %}
