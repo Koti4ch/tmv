@@ -1,6 +1,5 @@
 from django import template
-from content.models import CarouselItem
-from content.models import UserReview
+from content.models import CarouselItem, UserReview
 
 
 register = template.Library()
@@ -8,6 +7,7 @@ register = template.Library()
 @register.simple_tag
 def showAllActiveCarouselItems():
     return CarouselItem.get_active_items()
+
 
 @register.simple_tag
 def UserReviewText(user):
@@ -17,3 +17,8 @@ def UserReviewText(user):
         return reviewtext.review
     except:
         return False
+
+
+@register.simple_tag
+def showAllModeratedReviews():
+    return UserReview.objects.filter(is_moderate=True)
