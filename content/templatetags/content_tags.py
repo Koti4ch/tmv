@@ -1,6 +1,6 @@
 from django import template
 from content.models import CarouselItem
-from content.forms import ReviewForm
+from content.models import UserReview
 
 
 register = template.Library()
@@ -10,6 +10,10 @@ def showAllActiveCarouselItems():
     return CarouselItem.get_active_items()
 
 @register.simple_tag
-def UserReviewForm():
-    reviewform = ReviewForm()
-    return reviewform
+def UserReviewText(user):
+    try:
+        UserReview.objects.get(sendername_id=user.id)
+        reviewtext = UserReview.objects.get(sendername_id=user.id)
+        return reviewtext.review
+    except:
+        return False

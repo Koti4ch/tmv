@@ -4,6 +4,8 @@ from django.views import View
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.utils import timezone
+
 # Create your views here.
 from baselogic.models import UserMailLog
 from content.models import UserReview
@@ -35,12 +37,22 @@ class FormHendler(View):
 class SendReviewView(View):
     def post(self, request):
         review = ReviewForm(request.POST)
-
+        print(review)
         if review.is_valid():
-            print('True')
             review.save(commit=False)
             review.save()
+            messages.add_message(request, messages.INFO, 'Ваш отзыв отправлен. Спасибо.')
+        else:
+            print('False')
+            try:
+                obj = UserReview.objects.get(sendername_id=request.user.id)
+                obj.review = request.POST.get('review')
+                obj.is_moderate = False
+                obj.create_date = timezone.datetime.now()
+                obj.save()
+                messages.add_message(request, messages.INFO, 'Ваш отзыв изменен. Спасибо.')
+            except:
+                print('error')
 
-        messages.add_message(request, messages.INFO, f'Ваш отзыв отправлен\n{request.POST}')
         return redirect('/')
 
