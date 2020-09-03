@@ -8,4 +8,4 @@ from .models import UserReview
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = UserReview
-        fields = ('__all__')
+        fields = ('sendername', 'review')

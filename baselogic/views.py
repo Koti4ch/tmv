@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.core.mail import send_mail, BadHeaderError
-from baselogic.models import UserMailLog
+from django.contrib.auth.models import User
 from django.contrib import messages
 # Create your views here.
+from baselogic.models import UserMailLog
+from content.models import UserReview
+from content.forms import ReviewForm
 
 
 class FormHendler(View):
@@ -31,4 +34,13 @@ class FormHendler(View):
 
 class SendReviewView(View):
     def post(self, request):
-        print(request)
+        review = ReviewForm(request.POST)
+
+        if review.is_valid():
+            print('True')
+            review.save(commit=False)
+            review.save()
+
+        messages.add_message(request, messages.INFO, f'Ваш отзыв отправлен\n{request.POST}')
+        return redirect('/')
+

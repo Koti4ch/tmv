@@ -16,7 +16,7 @@
 
           <div class="modal-body">
               <h6>Что вы о нас думаете</h6>
-                <form method="post" action="{% url 'account_logout' %}">
+                <form method="post" action="{% url 'sendreview' %}">
                     {% csrf_token %}
 
                     <input hidden readonly name="sendername" required id="id_sendername" value="{{ user.id }}">
