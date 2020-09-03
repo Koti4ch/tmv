@@ -26,3 +26,9 @@ class FormHendler(View):
                 return redirect('/')
             messages.add_message(request, messages.INFO, 'Сообщение отправлено.')
         return HttpResponseRedirect('/')
+
+
+
+class SendReviewView(View):
+    def post(self, request):
+        print(request)
