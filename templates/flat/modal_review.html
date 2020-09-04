@@ -21,7 +21,8 @@
 
                     <input hidden readonly name="sendername" required id="id_sendername" value="{{ user.id }}">
                     <textarea class="form-control" name="review" cols="40" rows="10" maxlength="999" required id="id_review">{% if reviewtext %}{{ reviewtext }}{% endif %}</textarea>
-                    <button id="submit-button" class="form-control" type="submit" name="submit">Оставить</button>
+                    <button id="submit-button" class="form-control" type="submit" name="submit">{% if reviewtext %}Изменить{% else %}Оставить{% endif %}</button>
+
 
                 </form>
           </div>
