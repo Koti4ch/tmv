@@ -34,8 +34,20 @@
 
                 <ul class="social-icon ml-lg-3">
                     <li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
-                    <li><a href="#" class="fa fa-twitter"></a></li>
-                    <li><a href="#" class="fa fa-instagram"></a></li>
+                    <li>
+                        <script type="text/javascript"><!--
+                        document.write(VK.Share.button(false,{type: "custom", text: "<img src=\"https://vk.com/images/share_32.png\" width=\"32\" height=\"32\" />"}));
+                        --></script>
+                    </li>
+                    <li>
+                        <a id="viber_share"><img src="media\shares\viber\logo_icon_purple_small.png" alt="" width="32"></a>
+                        <script>
+                            var buttonID = "viber_share";
+                            var text = "Check this out: ";
+                            document.getElementById(buttonID)
+                                .setAttribute('href', "https://3p3x.adj.st/?adjust_t=u783g1_kw9yml&adjust_fallback=https%3A%2F%2Fwww.viber.com%2F%3Futm_source%3DPartner%26utm_medium%3DSharebutton%26utm_campaign%3DDefualt&adjust_campaign=Sharebutton&adjust_deeplink=" + encodeURIComponent("viber://forward?text=" + encodeURIComponent(text + " " + window.location.href)));
+                        </script>
+                    </li>
                 </ul>
             </div>
 
