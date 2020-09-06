@@ -1,4 +1,5 @@
 <!-- MENU BAR -->
+{% load static %}
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
 
@@ -33,19 +34,27 @@
                 </ul>
 
                 <ul class="social-icon ml-lg-3">
-                    <li><a href="https://fb.com/tooplate" class="fa fa-facebook"></a></li>
+                    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v8.0" nonce="5L6LvEw1"></script>
+                    <li>
+{#                        <a href="https://fb.com/tooplate" class="fa fa-facebook"></a>#}
+                        <div class="fb-share-button" data-href="https://localhost:8000" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocalhost%3A8000%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore fa fa-facebook"></a></div>
+                    </li>
+
                     <li>
                         <script type="text/javascript"><!--
-                        document.write(VK.Share.button(false,{type: "custom", text: "<img src=\"https://vk.com/images/share_32.png\" width=\"32\" height=\"32\" />"}));
+                        document.write(VK.Share.button(false,{type: "custom", text: "<i class=\"fa fa-vk\"></i>"}));
                         --></script>
                     </li>
                     <li>
-                        <a id="viber_share"><img src="media\shares\viber\logo_icon_purple_small.png" alt="" width="32"></a>
+                        <a id="viber_share" href="viber://forward?text=" title="Viber" target="_blank" rel="nofollow" data-inc="1"><i class="fab fa-viber"></i></a>
+{#                      viber://forward?text=https%3A%2F%2Fnews.tut.by%2Feconomics%2F699444.html%3Futm_source%3Dviber%26utm_campaign%3Dshare%26utm_medium%3Dsocial%26utm_content%3Ddesktop#}
                         <script>
                             var buttonID = "viber_share";
-                            var text = "Check this out: ";
+                            var text = "";
                             document.getElementById(buttonID)
                                 .setAttribute('href', "https://3p3x.adj.st/?adjust_t=u783g1_kw9yml&adjust_fallback=https%3A%2F%2Fwww.viber.com%2F%3Futm_source%3DPartner%26utm_medium%3DSharebutton%26utm_campaign%3DDefualt&adjust_campaign=Sharebutton&adjust_deeplink=" + encodeURIComponent("viber://forward?text=" + encodeURIComponent(text + " " + window.location.href)));
+                                console.log(text + "\n" + window.location.href)
                         </script>
                     </li>
                 </ul>
