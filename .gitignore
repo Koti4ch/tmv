@@ -8,3 +8,5 @@
 .vscode/
 *.sqlite3
 **/media
+/config/local_settings.py
+testauth.txt
