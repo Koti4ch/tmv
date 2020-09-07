@@ -15,8 +15,12 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'tmvdb.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tmvsite',
+        'USER': 'vitalita',
+        'PASSWORD': 'setupmymind',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
