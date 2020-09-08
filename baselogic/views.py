@@ -10,21 +10,22 @@ from django.utils import timezone
 from baselogic.models import UserMailLog
 from content.models import UserReview
 from content.forms import ReviewForm
+from config.settings import DEFAULT_FROM_EMAIL
 
 
 class FormHendler(View):
     def post(self, request):
-        subject = 'Сообщение от {}'.format(request.POST.get('cf-name', ''))
+        subject = 'Сообщение от {} c {}'.format(request.POST.get('cf-name', ''), request.POST.get('cf-email', ''))
         message = request.POST.get('cf-message', '')
-        from_email = request.POST.get('cf-email', '')
+        from_email = DEFAULT_FROM_EMAIL
         if subject and message and from_email:
             try:
                 maillog = UserMailLog()
                 maillog.sendername = subject
-                maillog.sendermail = from_email
+                maillog.sendermail = request.POST.get('cf-email', '')
                 maillog.mailtext = message
                 maillog.save()
-
+                # change mail iin list to owner mail
                 send_mail(subject, message, from_email, ['dkt324@yandex.ru'])
             except BadHeaderError:
                 messages.add_message(request, messages.INFO, 'Invalid header found.')
