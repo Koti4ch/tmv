@@ -75,11 +75,13 @@
                     <h6 class="mb-4 text-white" data-aos="fade-up">Вы можете зарегистрироваться у нас на сайте или войти под учетной записью другой соцсети</h6>
 
                     <p data-aos="fade-up" data-aos-delay="200">Так же, пользователи вошедшие под учетной записью на сайт могут оставлять свои комментарии!</p>
-                    {% UserReviewText user as reviewtext %}
-                    {% if reviewtext %}
-                        <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#reviewForm">Редактировать свой отзыв</a>
-                    {% else %}
-                        <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#reviewForm">Оставить отзыв</a>
+                    {% if user.is_authenticated %}
+                        {% UserReviewText user as reviewtext %}
+                        {% if reviewtext %}
+                            <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#reviewForm">Редактировать свой отзыв</a>
+                        {% else %}
+                            <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#reviewForm">Оставить отзыв</a>
+                        {% endif %}
                     {% endif %}
                 </div>
 
