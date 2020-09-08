@@ -26,7 +26,7 @@ class FormHendler(View):
                 maillog.mailtext = message
                 maillog.save()
                 # change mail iin list to owner mail
-                send_mail(subject, message, from_email, ['dkt324@yandex.ru'], fail_silently=False)
+                send_mail(subject, message, from_email, ['yurevich_vital@mail.ru'], fail_silently=False)
             except BadHeaderError:
                 messages.add_message(request, messages.INFO, 'Invalid header found.')
                 return redirect('/')
