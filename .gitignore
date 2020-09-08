@@ -10,4 +10,5 @@
 **/media
 /logs/debug.log
 /config/local_settings.py
+/config/product_settings.py
 testauth.txt
