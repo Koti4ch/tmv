@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.steam',
 
     # manual apps
     'baselogic.apps.BaselogicConfig',
@@ -112,7 +115,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 MEDIA_URL = '/media/'
 
