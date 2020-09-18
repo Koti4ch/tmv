@@ -11,7 +11,7 @@ SECRET_KEY = 'ld*bz_k9xwy3+c**xb#k2qna48r2(k2ed9wgq3orwgxvut!wyv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # change to tmv.by or ip
 
 DATABASES = {
     'default': {
@@ -29,10 +29,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # SMTP yandex server
-DEFAULT_FROM_EMAIL = 'dkt324@yandex.by'
+DEFAULT_FROM_EMAIL = 'tonermaster.service@yandex.by'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.yandex.ru"
-EMAIL_HOST_USER = "dkt324@yandex.by"
-EMAIL_HOST_PASSWORD = "shilov324"
+EMAIL_HOST_USER = "tonermaster.service@yandex.by"
+EMAIL_HOST_PASSWORD = "ldfnthvjcfxfxb"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
