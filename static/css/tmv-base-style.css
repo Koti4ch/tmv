@@ -583,8 +583,11 @@
   -----------------------------------------*/
 
   .webform input,
-  button#submit-button {
-    height: calc(2.25rem + 20px);
+  button#submit-button,
+  button#submit-auth,
+  button#submit-mail,
+  button#submit-signup {
+    height: calc(2.25rem + 17px);
   }
 
   .form-control {
@@ -597,7 +600,10 @@
     border-color: var(--dark-color);
   }
 
-  button#submit-button {
+  button#submit-button,
+  button#submit-auth,
+  button#submit-mail,
+  button#submit-signup {
     background: var(--dark-color);
     border-color: transparent;
     color: var(--white-color);
@@ -605,7 +611,10 @@
     transition: all 0.3s ease;
   }
 
-  button#submit-button:hover {
+  button#submit-button:hover,
+  button#submit-auth:hover,
+  button#submit-mail:hover,
+  button#submit-signup:hover {
     background: var(--primary-color);
   }
 
